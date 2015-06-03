@@ -12,14 +12,32 @@ namespace InterFloraWebAPI.Controllers
     {
 
         // POST api/customer
-        public HttpResponseMessage Post([FromBody]Order order)
+        /// <summary>
+        /// Add new customer to Dynamics CRM
+        /// </summary>
+        /// <param name="customer">Customer Model</param>
+        /// <remarks>Insert new customer to CRM</remarks>
+        /// <response code="400">Bad request</response>
+        /// <response code="500">Internal Server Error</response>
+        public HttpResponseMessage Post([FromBody]Customer customer)
         {
-            return Request.CreateResponse(HttpStatusCode.OK, order);
+            customer.TimeSent = DateTime.Now;
+            return Request.CreateResponse(HttpStatusCode.OK, customer);
         }
 
         // PUT api/customer/5
-        public void Put(int id, [FromBody]string value)
+        // POST api/customer
+        /// <summary>
+        /// Update customer in Dynamics CRM
+        /// </summary>
+        /// <param name="customer">Customer Model</param>
+        /// <remarks>Update customer in Dynamics CRM</remarks>
+        /// <response code="400">Bad request</response>
+        /// <response code="500">Internal Server Error</response>
+        public HttpResponseMessage Put([FromBody]Customer customer)
         {
+            customer.TimeUpdated = DateTime.Now;
+            return Request.CreateResponse(HttpStatusCode.OK, customer);
         }
 
     }

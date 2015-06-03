@@ -13,6 +13,5 @@ namespace InterFloraWebAPI.Models
         public List<Order> Orders { get; set; }
         public DateTime TimeSent { get; set; }
         public DateTime TimeUpdated { get; set; }
-
     }
 }
